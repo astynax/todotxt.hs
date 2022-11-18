@@ -1,0 +1,52 @@
+cabal-version:      2.4
+name:               todotxt
+version:            0.1.0.0
+synopsis:           A todotxt file format parser
+description:        A set of data types and parsers for woking with todotxt format
+category:           Text
+homepage:           https://github.com/astynax/todotxt.hs/
+bug-reports:        https://github.com/astynax/todotxt.hs/issues
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Aleksei Pirogov
+maintainer:         astynax@users.noreply.github.com
+copyright:          Aleksei Pirogov, aka astynax, 2022
+
+extra-source-files:
+    LICENSE
+    README.md
+    CHANGELOG.md
+
+library
+    exposed-modules:
+        TodoTxt
+        TodoTxt.Parser
+    build-depends:
+        , base        >=4.9 && <5
+        , text        >=2.0 && <3
+        , megaparsec  >=9.0 && <10
+        , hashable    >=1.4.0.1 && <2
+        , time        >=1.12 && <2
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    default-extensions:
+        BlockArguments
+        LambdaCase
+    ghc-options:
+        -Wall -Wcompat -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wredundant-constraints
+        -Wmissing-exported-signatures
+
+test-suite main
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          TodoTxtTest.hs
+    build-depends:
+        , todotxt
+        , HUnit       >=1.6.0.0 && <2
+        , base        >=4.9 && <5
+        , text        >=2.0 && <3
+        , megaparsec  >=9.0 && <10
+        , hashable    >=1.4.0.1 && <2
+        , time        >=1.12 && <2
